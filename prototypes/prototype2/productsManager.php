@@ -1,5 +1,7 @@
 <?php
 
+include 'products.php';
+
 class productManager {
 
     private function  connectDB(){
@@ -21,12 +23,17 @@ class productManager {
 
             return $connect;
     }
+
+
+
+
+   public function getAllProducts(){
+
+        $products = new product();
+       
+
+  }
+
 }
-
-
-
-
-
-
 
 ?>
