@@ -29,12 +29,20 @@ class productManager {
 
    public function getAllProducts(){
 
+
+       $products = new product();
        $selectedProduct = "SELECT * FROM products";
        $query = mysqli_query($this->connectDB(), $selectedProduct);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+       $products->getProductName($result['productName']);
+       $products->getDetails($result['details']);
+       $products->getPrice($result['price']);
+
+
+       return $products;
        
 
-       return $result;
   
   }
 
