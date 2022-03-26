@@ -30,21 +30,35 @@ class productManager {
    public function getAllProducts(){
 
 
-       $products = new product();
        $selectedProduct = "SELECT * FROM products";
        $query = mysqli_query($this->connectDB(), $selectedProduct);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-       $products->getProductName($result['productName']);
-       $products->getDetails($result['details']);
-       $products->getPrice($result['price']);
+       $productsArray = array();
+
+       foreach($result as $data){
+
+        $products = new product();
+
+        $products->setId($data['id']);
+        $products->setProcuctName($data['productName']);
+        $products->setDetails($data['details']);
+        $products->setQuantity($data['quantity']);
+        $products->setPrice($data['price']);
+
+        array_push($productsArray, $products);
+
+       }
 
 
-       return $products;
        
 
-  
+
+       return $productsArray;
+      
   }
+
+  
 
 }
 
