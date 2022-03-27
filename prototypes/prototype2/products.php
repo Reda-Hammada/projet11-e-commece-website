@@ -28,7 +28,7 @@ class product {
  }
 
 
- public function setProcuctName($value){
+ public function setProductName($value){
 
    $this->productName = $value;
 

@@ -31,9 +31,9 @@ class productManager {
    public function getAllProducts(){
 
 
-       $selectedProduct = "SELECT * 
+       $selectedProducts = "SELECT * 
                           FROM products";
-       $query = mysqli_query($this->connectDB(), $selectedProduct);
+       $query = mysqli_query($this->connectDB(), $selectedProducts);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
        $productsArray = array();
@@ -43,7 +43,7 @@ class productManager {
         $products = new product();
 
         $products->setId($data['id']);
-        $products->setProcuctName($data['productName']);
+        $products->setProductName($data['productName']);
         $products->setDetails($data['details']);
         $products->setQuantity($data['quantity']);
         $products->setPrice($data['price']);
@@ -54,16 +54,35 @@ class productManager {
 
        }
 
-
-       
-
-
        return $productsArray;
       
   }
+   
+  public function  getProductForCart($id){
+  
+    $selectProduct = "SELECT * FROM products WHERE id = '$id' ";
+    $queryCart = mysqli_query($this->connectDB(),$selectProduct);
+    $resultCart = mysqli_fetch_all($queryCart,MYSQLI_ASSOC);
+    $cartArray = array();
+    
+    foreach($resultCart  as $cart){
 
+      $cartProduct = new product();
+
+      $cartProduct->setId($cart['id']);
+      $cartProduct->setProductName($cart['productName']);
+      $cartProduct->setDetails($cart['details']);
+      $cartProduct->setPrice($cart['price']);
+      array_push($cartArray, $cartProduct);
+
+    }
   
 
+
+    return $cartArray;
+
+    
+  }
 }
 
 ?>

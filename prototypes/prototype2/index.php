@@ -4,13 +4,9 @@ $productManager = new productManager();
 $data = $productManager->getAllProducts();
 $product = new product();
 
-foreach($data as $product) {
-
-
-
-
-
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -19,28 +15,31 @@ foreach($data as $product) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <title>Document</title>
 </head>
 <body>
     <header>
         <nav>
-            <h1>E-Store</h1>
+            <h1 class="text-center bg-dark text-light">E-Store</h1>
         </nav>
     </header>
      <main>
  
-    
-    <section class="ultimateProductsContainer">
+    <?php foreach($data as $product) { ?>
+    <section class="container">
 
-        <div class="productContainer ">
+        <div class="text-center class="w-25" ">
+            
+            <form method="GET">
 
-            <p><?php echo $product->getProductName()?></p>
-            <p><?php echo $product->getDetails()?><p>
-            <p><?php echo $product->getQuantity() ?><p>
-            <p><?php echo $product->getPrice() ?><br>
-            <button >add Cart</button>
+                <img src="./images/laptop.jpeg" class="w-25">
+                <p><?php echo $product->getProductName()?></p>
+                <p><?php echo $product->getDetails()?><p>
+                <p><?php echo $product->getPrice() ?><br>
+                <input name="quantity" class="m-2 text-center" type = "number" value="1"><br>
+                <a class="btn btn-primary" href="cart.php?id=<?php  echo $product->getId() ?>">Add To Cart</a>
 
+            </form>
 
         </div>
 
