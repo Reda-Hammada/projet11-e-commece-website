@@ -2,6 +2,7 @@
 
 include 'products.php';
 
+
 class productManager {
 
     private function  connectDB(){
@@ -30,7 +31,8 @@ class productManager {
    public function getAllProducts(){
 
 
-       $selectedProduct = "SELECT * FROM products";
+       $selectedProduct = "SELECT * 
+                          FROM products";
        $query = mysqli_query($this->connectDB(), $selectedProduct);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -47,6 +49,8 @@ class productManager {
         $products->setPrice($data['price']);
 
         array_push($productsArray, $products);
+
+        
 
        }
 
