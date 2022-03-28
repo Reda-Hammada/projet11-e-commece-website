@@ -64,7 +64,10 @@ class productManager {
     $queryDetails = mysqli_query($this->connectDB(),$selectProduct);
     $resultDetails = mysqli_fetch_all($queryDetails,MYSQLI_ASSOC);
     $detailsArray = array();
+     
     
+
+
     foreach($resultDetails  as $details){
 
       $productDetails = new product();

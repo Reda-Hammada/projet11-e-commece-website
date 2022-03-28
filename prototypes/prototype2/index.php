@@ -4,6 +4,8 @@ $productManager = new productManager();
 $data = $productManager->getAllProducts();
 $product = new product();
 
+
+
 ?>
 
 

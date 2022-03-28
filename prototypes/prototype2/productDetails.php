@@ -15,6 +15,28 @@ if(isset($_GET['id'])){
     $data =  $productManager->getProductForDetails($id);
     $details = new product();
 
+
+  
+
+        session_start();
+        $session = new product();
+        $sessionArray = array();
+        $_SESSION['productName'] = $details->getProductName();
+        $_SESSION['details'] = $details->getDetails();
+        $_SESSION['quantity'] = $_GET['quantity'];
+        $_SESSION['price'] = $details->getPrice();
+        array_push($sessionArray,$_SESSION['productName'] );
+        $_SESSION['sessionArray'] = $sessionArray;
+       
+
+
+            
+
+        
+
+
+    
+
   
 ?>
 
@@ -37,19 +59,26 @@ if(isset($_GET['id'])){
 
     <main>
     <?php foreach($data as $details){ ?>
-        <section class="w-100 d-flex ">
+        <section class="w-75 d-flex justify-content-evenly">
 
-            <div class="w-75 mt-5">
-                <img class="w-25" src="./images/laptop.jpeg">
+            <div class="w-50 mt-5">
+                <img class="w-50" src="./images/laptop.jpeg">
             </div>
-            
-                 <p><?php  print_r($details);
-                                 
+            <div class="w-25 mt-5">
+                <form method="quantity">
+                    <p><?php  echo $details->getProductName();?></p>
+                    <p><?php  echo $details->getDetails();?></p>
+                    <p><?php echo $details->getPrice() ?></p>
+                    <input type="number" value="1" name="quantity">
+                    <input class="btn btn-primary mt-2"  type="submit" value="Add to Cart" name="cart">
+                    <input class="btn btn-primary mt-2" type="submit" value="Buy">
+ 
+                </form>
+                
 
-                                  ?></p>
                 <?php } ?>
 
-           
+            </div>
         </section>
     </main>
   
