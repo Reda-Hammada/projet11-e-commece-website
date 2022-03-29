@@ -18,8 +18,6 @@ $details = new product();
 
 if($details && isset($_GET['quantity'])){
 
-
-
     $arraySession  = array(
        
      "productName" => $details->getProductName(),
@@ -28,12 +26,10 @@ if($details && isset($_GET['quantity'])){
      "productprice" => $details->getPrice()
 
     
-     
+    
 
         
     );
-
-    
 
 
     $productManager->startSession($id, $arraySession);
@@ -41,9 +37,11 @@ if($details && isset($_GET['quantity'])){
 
 
 
-
-
 }
+
+
+
+
 
        
 

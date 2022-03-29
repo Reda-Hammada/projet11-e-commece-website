@@ -1,6 +1,7 @@
 <?php
 
 include 'products.php';
+include 'cartClass.php';
 
 
 class productManager {
@@ -90,9 +91,17 @@ class productManager {
   }
 
   public function  startSession($id,$arraySession){
+    
+    session_start();
 
-
+    $cartClass = new cart();
+    $_SESSION['cart'] =  $arraySession;
+    $data = $arraySession;
+  
+    print_r($data);
+   
   }
+    
  
 }
 
