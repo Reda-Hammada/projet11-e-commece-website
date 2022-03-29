@@ -46,7 +46,7 @@ if(isset($_GET['id'])){
                  <p><?php  print_r($details);
                                  
 
-                                  ?></p>
+                                   ?></p>
                 <?php } ?>
 
            
