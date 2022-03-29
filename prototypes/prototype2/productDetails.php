@@ -15,6 +15,7 @@ if(isset($_GET['id'])){
 $data =  $productManager->getProductForDetails($id);
 $details = new product();
 
+
 if($details && isset($_GET['quantity'])){
 
 
@@ -34,12 +35,11 @@ if($details && isset($_GET['quantity'])){
 
     
 
-    die();
 
-    $productManager->startSession($id, $arraySession){
+    $productManager->startSession($id, $arraySession);
 
-        
-    };
+
+
 
 
 
@@ -99,6 +99,8 @@ if($details && isset($_GET['quantity'])){
                 <?php } ?>
 
             </div>
+        </section>
+        <section>
         </section>
     </main>
   
