@@ -88,7 +88,12 @@ class productManager {
 
     
   }
- 
 
+  public function  startSession($id,$arraySession){
+
+
+  }
+ 
+}
 
 ?>

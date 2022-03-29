@@ -8,32 +8,47 @@ if(isset($_GET['id'])){
     $id =  $_GET['id'];
 
     $productManager = new productManager();
-     $productManager->getProductForDetails($id);
+    $productManager->getProductForDetails($id);
     
-    }
+    };
 
-    $data =  $productManager->getProductForDetails($id);
-    $details = new product();
+$data =  $productManager->getProductForDetails($id);
+$details = new product();
+
+if($details && isset($_GET['quantity'])){
+
+
+
+    $arraySession  = array(
+       
+     "productName" => $details->getProductName(),
+     "ProductDetails" => $details->getDetails(),
+     "productQuantity" => $_GET['quantity'],
+     "productprice" => $details->getPrice()
+
+    
+     
+
+        
+    );
+
+    
+
+    die();
+
+    $productManager->startSession($id, $arraySession){
+
+        
+    };
+
+
+
+}
+
+       
 
 
   
-
-        session_start();
-        $session = new product();
-        $sessionArray = array();
-
-
-       
-
-
-        $_SESSION['productName'] = $details->getProductName();
-        $_SESSION['details'] = $details->getDetails();
-        $_SESSION['quantity'] = $_GET['quantity'];
-        $_SESSION['price'] = $details->getPrice();
-        array_push($sessionArray,$_SESSION['quantity'] );
-        $_SESSION['sessionArray'] = $sessionArray;
-       
-
 
             
 
@@ -70,11 +85,11 @@ if(isset($_GET['id'])){
                 <img class="w-50" src="./images/laptop.jpeg">
             </div>
             <div class="w-25 mt-5">
-                <form method="quantity">
+                <form method="GET" action="cart.php">
                     <p><?php  echo $details->getProductName();?></p>
                     <p><?php  echo $details->getDetails();?></p>
                     <p><?php echo $details->getPrice() ?></p>
-                    <input type="number" value="1" name="quantity">
+                    <input type="number" value="3" name="quantity">
                     <input class="btn btn-primary mt-2"  type="submit" value="Add to Cart" name="cart">
                     <input class="btn btn-primary mt-2" type="submit" value="Buy">
  
