@@ -21,11 +21,16 @@ if(isset($_GET['id'])){
         session_start();
         $session = new product();
         $sessionArray = array();
+
+
+       
+
+
         $_SESSION['productName'] = $details->getProductName();
         $_SESSION['details'] = $details->getDetails();
         $_SESSION['quantity'] = $_GET['quantity'];
         $_SESSION['price'] = $details->getPrice();
-        array_push($sessionArray,$_SESSION['productName'] );
+        array_push($sessionArray,$_SESSION['quantity'] );
         $_SESSION['sessionArray'] = $sessionArray;
        
 

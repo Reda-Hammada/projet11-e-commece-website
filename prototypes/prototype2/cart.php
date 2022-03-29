@@ -1,13 +1,8 @@
 <?php
   session_start();
   $data = $_SESSION['sessionArray'];
+  print_r()
 
-  
-  for($i = 0; $i < count($data); $i++){
-
-
-
-  }
 
 
 ?>
