@@ -76,10 +76,6 @@ if(isset($_GET['id'])){
                 </form>
                 
 
-<<<<<<< HEAD
-                                   ?></p>
-=======
->>>>>>> a60c43a4f40b5483602c4cb1ae27b96ec264f3b9
                 <?php } ?>
 
             </div>
