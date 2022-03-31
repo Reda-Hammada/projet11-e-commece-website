@@ -16,14 +16,17 @@ $data =  $productManager->getProductForDetails($id);
 $details = new product();
 
 
-if($details && isset($_GET['quantity'])){
+
 
     $arraySession  = array(
-       
-     "productName" => $details->getProductName(),
-     "ProductDetails" => $details->getDetails(),
-     "productQuantity" => $_GET['quantity'],
-     "productprice" => $details->getPrice()
+
+
+  
+     'id' => '$id',
+     'productName' => '$details->getProductName()',
+     'ProductDetails' => '$details->getDetails()',
+     'productQuantity' => '$_GET["quantity"]',
+     'productprice' => '$details->getPrice()'
         
     );
 
@@ -34,7 +37,7 @@ if($details && isset($_GET['quantity'])){
 
 
 
-}
+
 
 
 
@@ -82,7 +85,7 @@ if($details && isset($_GET['quantity'])){
                 <img class="w-50" src="./images/laptop.jpeg">
             </div>
             <div class="w-25 mt-5">
-                <form method="GET" action="cart.php">
+                <form method="GET" action="t.php">
                     <p><?php  echo $details->getProductName();?></p>
                     <p><?php  echo $details->getDetails();?></p>
                     <p><?php echo $details->getPrice() ?></p>

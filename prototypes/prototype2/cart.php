@@ -3,9 +3,8 @@
 include 'productsManager.php';
 $cart = new productManager();
 session_start();
-$details = $cart->displayCart();
-
 print_r($_SESSION['cart']);
+$details = $cart->displayCart();
 
 ?>
 
@@ -23,11 +22,11 @@ print_r($_SESSION['cart']);
     <table>
         <thead>
        </thead>
-    
-
-
-        <p><?php ?></p>
-
-    </tbale>
+        <?php foreach($details as $data  ){ ?>
+        
+        
+        <p><?php echo $data['ProductDetails'] ?></p>
+            <?php }  ?>
+     </tbale>
 </body>
 </html>

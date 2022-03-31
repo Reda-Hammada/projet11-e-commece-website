@@ -103,8 +103,9 @@ class productManager {
   public function displayCart(){
  
     if(isset($_SESSION['cart'])){
-
-      return $_SESSION['cart'];
+       
+      $session = $_SESSION['cart'];
+      return $session;
       
 
     };
