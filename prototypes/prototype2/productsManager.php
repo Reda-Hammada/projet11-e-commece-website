@@ -90,27 +90,38 @@ class productManager {
     
   }
 
-  public function  startSession($id,$arraySession){
+  public function  startSession($arrCart){
     
       session_start();
-      $_SESSION['cart'][$id] = $arraySession;
+      $_SESSION['cart'] = $$arrCart;
 
     }
 
 
 
 
-  public function displayCart(){
- 
-    if(isset($_SESSION['cart'])){
-       
-      $session = $_SESSION['cart'];
-      return $session;
-      
 
-    };
 
-  }
+    public function getProductForCart($id){
+              
+      $productCart = new product();
+      $product = "SELECT * FROM products WHERE id = '$id' ";
+      $query = mysqli_query($this->connectDB(), $product);
+      $result = mysqli_fetch_all($query,MYSQLi_ASSOC);
+      $detailsForCart = array();
+
+      $productCart->setId($result['id']);
+      $productCart->setProductName($result['productName']);
+      $productCart->setDetails($result['details']);
+      $productCart->setPrice($result['price']);
+      $productCart->SetQuantity($result['quantity']);
+
+      array_push($detailsForCart, $product);
+
+      return $detailsForCart;
+    }
+
+  
     
  
 }

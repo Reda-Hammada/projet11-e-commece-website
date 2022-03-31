@@ -1,10 +1,29 @@
 <?php
 
-include 'productsManager.php';
-$cart = new productManager();
-session_start();
-print_r($_SESSION['cart']);
-$details = $cart->displayCart();
+require 'productsManager.php';
+
+if($_GET['id']){
+
+    $id = $_GET['id'];
+
+    $cart = new productManager();
+
+ $cart->getProductForCart($id);
+
+    
+}
+
+$product = new product();
+$arrCart = array(
+    
+    'productName' => $product->getProductName(),
+    'details' => $product->getDetails()
+
+);
+
+
+$dataCArt = $cart->startSession($arrCart);
+
 
 ?>
 
@@ -22,11 +41,11 @@ $details = $cart->displayCart();
     <table>
         <thead>
        </thead>
-        <?php foreach($details as $data  ){ ?>
+       <?php foreach($dataCArt as $detailsCart){ ?>
         
         
-        <p><?php echo $data['ProductDetails'] ?></p>
-            <?php }  ?>
+        <p><?php echo $detailsCart['productName']?></p>
+        <?php } ?>
      </tbale>
 </body>
 </html>

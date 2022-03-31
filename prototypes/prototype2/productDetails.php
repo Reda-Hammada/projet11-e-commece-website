@@ -18,23 +18,6 @@ $details = new product();
 
 
 
-    $arraySession  = array(
-
-
-  
-     'id' => '$id',
-     'productName' => '$details->getProductName()',
-     'ProductDetails' => '$details->getDetails()',
-     'productQuantity' => '$_GET["quantity"]',
-     'productprice' => '$details->getPrice()'
-        
-    );
-
-    
-
-    $productManager->startSession($id, $arraySession);
-
-
 
 
 
@@ -85,7 +68,7 @@ $details = new product();
                 <img class="w-50" src="./images/laptop.jpeg">
             </div>
             <div class="w-25 mt-5">
-                <form method="GET" action="t.php">
+                <form method="GET" action ="cart.php">
                     <p><?php  echo $details->getProductName();?></p>
                     <p><?php  echo $details->getDetails();?></p>
                     <p><?php echo $details->getPrice() ?></p>
