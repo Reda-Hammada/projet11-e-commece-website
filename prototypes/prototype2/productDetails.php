@@ -24,13 +24,10 @@ if($details && isset($_GET['quantity'])){
      "ProductDetails" => $details->getDetails(),
      "productQuantity" => $_GET['quantity'],
      "productprice" => $details->getPrice()
-
-    
-    
-
         
     );
 
+    
 
     $productManager->startSession($id, $arraySession);
 
@@ -38,6 +35,8 @@ if($details && isset($_GET['quantity'])){
 
 
 }
+
+
 
 
 
@@ -87,7 +86,7 @@ if($details && isset($_GET['quantity'])){
                     <p><?php  echo $details->getProductName();?></p>
                     <p><?php  echo $details->getDetails();?></p>
                     <p><?php echo $details->getPrice() ?></p>
-                    <input type="number" value="3" name="quantity">
+                    <input type="number" value="1" name="quantity">
                     <input class="btn btn-primary mt-2"  type="submit" value="Add to Cart" name="cart">
                     <input class="btn btn-primary mt-2" type="submit" value="Buy">
  

@@ -92,14 +92,23 @@ class productManager {
 
   public function  startSession($id,$arraySession){
     
-    session_start();
+      session_start();
+      $_SESSION['cart'][$id] = $arraySession;
 
-    $cartClass = new cart();
-    $_SESSION['cart'] =  $arraySession;
-    $data = $arraySession;
-  
-    print_r($data);
-   
+    }
+
+
+
+
+  public function displayCart(){
+ 
+    if(isset($_SESSION['cart'])){
+
+      return $_SESSION['cart'];
+      
+
+    };
+
   }
     
  

@@ -12,13 +12,13 @@
 
         return $this->nameProduct;
 
-    }
+      }
 
     public function setNameProduct($value){
 
         $this->nameProduct = $value;
 
-    }
+      }
 
  
 
@@ -26,45 +26,49 @@
 
     return $this->details;
 
- }
+   }
 
  public function  setDetails($value){
 
     $this->details = $value;
- }
+
+   }
 
  public function  getQuantity(){
 
     return $this->quantity;
 
- }
+   }
 
  public function  setQuantity($value){
 
     $this->quantity = $value;
- }
+
+   }
 
  public function  getPrice(){
 
     return $this->price;
 
- }
+   }
 
  public function  setPrice($value){
 
     $this->price = $value;
- }
+
+   }
 
  public function  getTotal(){
 
     return $this->total;
 
- }
+   }
 
  public function  setTotal($value){
 
     $this->total = $value;
- }
+    
+   }
 
 
  
