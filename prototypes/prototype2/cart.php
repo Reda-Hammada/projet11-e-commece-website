@@ -17,8 +17,8 @@ if($_GET['id']){
 $productCart = new cart();
 $arrCart = array(
     
-    'productName' => $product->getProductName(),
-    'details' => $product->getDetails()
+    'productName' => $productCart->getProductName(),
+    'details' => $productCart->getDetails()
 
 );
 
