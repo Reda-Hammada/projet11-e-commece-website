@@ -78,7 +78,7 @@ $data =  $productManager->getProductForDetails($id);
                         <p class="lead"><?php echo $details->getDetails() ?></p>
                         <div class="d-flex">
                                 <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /><br>
-                                <a href="cart.php?id=<?php  echo $deta->getId() ?>">
+                                <a href="cart.php?id=<?php  echo $details->getId() ?>">
                                 <button  class="btn btn-outline-dark flex-shrink-0">
                                 <i class="bi-cart-fill me-1"></i> Add to cart</button></a>
                         </div>

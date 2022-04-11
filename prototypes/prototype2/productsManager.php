@@ -71,7 +71,7 @@ class productManager {
 
     foreach($resultDetails  as $details){
 
-      $productDetails = new product();
+      $productDetails = new cart();
 
       $productDetails->setId($details['id']);
       $productDetails->setProductName($details['productName']);
@@ -104,11 +104,12 @@ class productManager {
 
     public function getProductForCart($id){
               
-      $productCart = new product();
       $product = "SELECT * FROM products WHERE id = '$id' ";
       $query = mysqli_query($this->connectDB(), $product);
       $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
       $detailsForCart = array();
+
+      $productCart = new product();
 
       $productCart->setId($result['id']);
       $productCart->setProductName($result['productName']);
