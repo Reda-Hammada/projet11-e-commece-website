@@ -45,7 +45,7 @@ class productManager {
 
         $products->setId($data['id']);
         $products->setProductName($data['productName']);
-        $products->setDetails($data['details']);
+        $products->setDetails($data['description']);
         $products->setQuantity($data['quantity']);
         $products->setPrice($data['price']);
 
@@ -75,7 +75,7 @@ class productManager {
 
       $productDetails->setId($details['id']);
       $productDetails->setProductName($details['productName']);
-      $productDetails->setDetails($details['details']);
+      $productDetails->setDetails($details['description']);
       $productDetails->setPrice($details['price']);
 
     }
