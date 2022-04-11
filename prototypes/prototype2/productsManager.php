@@ -1,6 +1,8 @@
 <?php
 
 include 'products.php';
+include 'cartClass.php';
+
 
 class productManager {
 
@@ -30,24 +32,98 @@ class productManager {
    public function getAllProducts(){
 
 
-       $products = new product();
-       $selectedProduct = "SELECT * FROM products";
-       $query = mysqli_query($this->connectDB(), $selectedProduct);
+       $selectedProducts = "SELECT * FROM products";
+
+       $query = mysqli_query($this->connectDB(), $selectedProducts);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-       $rowCount = mysqli_num_rows($result);
-       echo $rowCount;
-       die();
-       $products->setProductName($result['productName']);
-       $products->setDetails($result['details']);
-       $products->setPrice($result['price']);
+
+       $productsArray = array();
+
+       foreach($result as $data){
+
+        $products = new product();
+
+        $products->setId($data['id']);
+        $products->setProductName($data['productName']);
+        $products->setDetails($data['details']);
+        $products->setQuantity($data['quantity']);
+        $products->setPrice($data['price']);
+
+        array_push($productsArray, $products);
+
+        
+
+       }
+
+       return $productsArray;
+      
+  }
+   
+  public function  getProductForDetails($id){
+  
+    $selectProduct = "SELECT * FROM products WHERE id = '$id' ";
+    $queryDetails = mysqli_query($this->connectDB(),$selectProduct);
+    $resultDetails = mysqli_fetch_all($queryDetails,MYSQLI_ASSOC);
+    $detailsArray = array();
+     
+    
 
 
-       return $products;
-       
+    foreach($resultDetails  as $details){
+
+      $productDetails = new product();
+
+      $productDetails->setId($details['id']);
+      $productDetails->setProductName($details['productName']);
+      $productDetails->setDetails($details['details']);
+      $productDetails->setPrice($details['price']);
+
+    }
+
+    array_push($detailsArray, $productDetails);
 
   
+
+
+    return $detailsArray;
+
+    
   }
 
+  public function  startSession($arrCart){
+    
+      session_start();
+      $_SESSION['cart'] = $$arrCart;
+
+    }
+
+
+
+
+
+
+    public function getProductForCart($id){
+              
+      $productCart = new product();
+      $product = "SELECT * FROM products WHERE id = '$id' ";
+      $query = mysqli_query($this->connectDB(), $product);
+      $result = mysqli_fetch_all($query,MYSQLi_ASSOC);
+      $detailsForCart = array();
+
+      $productCart->setId($result['id']);
+      $productCart->setProductName($result['productName']);
+      $productCart->setDetails($result['details']);
+      $productCart->setPrice($result['price']);
+      $productCart->SetQuantity($result['quantity']);
+
+      array_push($detailsForCart, $product);
+
+      return $detailsForCart;
+    }
+
+  
+    
+ 
 }
 
 ?>
