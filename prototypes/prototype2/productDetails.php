@@ -20,18 +20,6 @@ $data =  $productManager->getProductForDetails($id);
 
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>R
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
-</head>
-<body>
-    <header>
-        <nav>
-
-=======
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -74,7 +62,6 @@ $data =  $productManager->getProductForDetails($id);
                     </form>
                 </div>
             </div>
->>>>>>> refs/remotes/origin/main
         </nav>
         <!-- Product section-->
         <section class="py-5">
@@ -90,10 +77,13 @@ $data =  $productManager->getProductForDetails($id);
                         </div>
                         <p class="lead"><?php echo $details->getDetails() ?></p>
                         <div class="d-flex">
+                            <form method="GET" action="cart.php">
                                 <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /><br>
                                 <a href="cart.php?id=<?php  echo $details->getId() ?>">
                                 <button  class="btn btn-outline-dark flex-shrink-0">
                                 <i class="bi-cart-fill me-1"></i> Add to cart</button></a>
+                            </form>
+                           
                         </div>
                     </div>
                 </div>

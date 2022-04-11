@@ -3,7 +3,7 @@
 include 'products.php';
 include 'cartClass.php';
 
-
+// connect DataBase
 class productManager {
 
     private function  connectDB(){
@@ -28,7 +28,7 @@ class productManager {
 
 
 
-
+    // get all products from database to display on main page
    public function getAllProducts(){
 
 
@@ -59,6 +59,7 @@ class productManager {
       
   }
    
+  // get one particular product to display on product details page 
   public function  getProductForDetails($id){
   
     $selectProduct = "SELECT * FROM products WHERE id = '$id' ";
@@ -71,7 +72,7 @@ class productManager {
 
     foreach($resultDetails  as $details){
 
-      $productDetails = new cart();
+      $productDetails = new product();
 
       $productDetails->setId($details['id']);
       $productDetails->setProductName($details['productName']);
@@ -93,8 +94,8 @@ class productManager {
   public function  startSession($arrCart){
     
       session_start();
-      $_SESSION['cart'] = $$arrCart;
-
+       $convertIntoString = implode("",$arrCart);
+      $_SESSION['cart'] = $convertIntoString;
     }
 
 
@@ -104,19 +105,24 @@ class productManager {
 
     public function getProductForCart($id){
               
-      $product = "SELECT * FROM products WHERE id = '$id' ";
+      $product = "SELECT * FROM products WHERE id = '$id'";
       $query = mysqli_query($this->connectDB(), $product);
-      $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+      $cartDetails = mysqli_fetch_all($query, MYSQLI_ASSOC);
       $detailsForCart = array();
 
-      $productCart = new product();
 
-      $productCart->setId($result['id']);
-      $productCart->setProductName($result['productName']);
-      $productCart->setDetails($result['description']);
-      $productCart->setPrice($result['price']);
+      foreach($cartDetails as $cart){
 
-      array_push($detailsForCart, $product);
+        $productCart = new cart();
+
+        $productCart->setIdCart($cart['id']);
+        $productCart->setNameProduct($cart['productName']);
+        $productCart->setDetails($cart['description']);
+        $productCart->setPrice($cart['price']);
+
+      }
+     
+      array_push($detailsForCart, $productproductCart);
 
       return $detailsForCart;
     }

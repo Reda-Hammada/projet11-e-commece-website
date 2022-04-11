@@ -1,12 +1,24 @@
 <?php
  
  class cart{
-
+    private $id;
     private $nameProduct;
     private $details;
     private $quantity;
     private $price;
     private $total;
+
+    public function getIdCart(){
+
+      return $this->id;
+
+    }
+
+  public function setIdCart($value){
+
+      $this->id = $value;
+
+    }
 
     public function getNameProduct(){
 
