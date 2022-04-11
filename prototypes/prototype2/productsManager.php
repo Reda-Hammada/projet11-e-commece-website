@@ -45,7 +45,7 @@ class productManager {
 
         $products->setId($data['id']);
         $products->setProductName($data['productName']);
-        $products->setDetails($data['details']);
+        $products->setDetails($data['description']);
         $products->setQuantity($data['quantity']);
         $products->setPrice($data['price']);
 
@@ -71,11 +71,11 @@ class productManager {
 
     foreach($resultDetails  as $details){
 
-      $productDetails = new product();
+      $productDetails = new cart();
 
       $productDetails->setId($details['id']);
       $productDetails->setProductName($details['productName']);
-      $productDetails->setDetails($details['details']);
+      $productDetails->setDetails($details['description']);
       $productDetails->setPrice($details['price']);
 
     }
@@ -104,17 +104,17 @@ class productManager {
 
     public function getProductForCart($id){
               
-      $productCart = new product();
       $product = "SELECT * FROM products WHERE id = '$id' ";
       $query = mysqli_query($this->connectDB(), $product);
-      $result = mysqli_fetch_all($query,MYSQLi_ASSOC);
+      $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
       $detailsForCart = array();
+
+      $productCart = new product();
 
       $productCart->setId($result['id']);
       $productCart->setProductName($result['productName']);
-      $productCart->setDetails($result['details']);
+      $productCart->setDetails($result['description']);
       $productCart->setPrice($result['price']);
-      $productCart->SetQuantity($result['quantity']);
 
       array_push($detailsForCart, $product);
 

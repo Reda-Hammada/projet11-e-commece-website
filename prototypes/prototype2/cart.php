@@ -1,5 +1,6 @@
 <?php
 
+
 require 'productsManager.php';
 
 if($_GET['id']){
@@ -8,16 +9,16 @@ if($_GET['id']){
 
     $cart = new productManager();
 
- $cart->getProductForCart($id);
+    $cart->getProductForCart($id);
 
     
 }
 
-$product = new product();
+$productCart = new cart();
 $arrCart = array(
     
-    'productName' => $product->getProductName(),
-    'details' => $product->getDetails()
+    'productName' => $productCart->getProductName(),
+    'details' => $productCart->getDetails()
 
 );
 
