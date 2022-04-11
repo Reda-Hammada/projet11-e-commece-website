@@ -1,6 +1,7 @@
 <?php
 
 include 'productsManager.php';
+$product = new product();
 $productManager = new productManager();
 $data = $productManager->getAllProducts();
 
@@ -23,10 +24,9 @@ foreach($data as $value) {
     <title>Document</title>
 </head>
 <body>
-    <p><?php echo $value['id'] ?></p>
-    <p><?php echo $value['productName'] ?></p>
-    <p><?php echo $value['details'] ?></p>
-    <p><?php echo $value['price']  ?></p>
+    <p><?php echo $value['productName']  ?></p>
+   
+   
  
     <?php } ?>
 </body>

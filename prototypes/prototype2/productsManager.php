@@ -34,10 +34,12 @@ class productManager {
        $selectedProduct = "SELECT * FROM products";
        $query = mysqli_query($this->connectDB(), $selectedProduct);
        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-       $products->getProductName($result['productName']);
-       $products->getDetails($result['details']);
-       $products->getPrice($result['price']);
+       $rowCount = mysqli_num_rows($result);
+       echo $rowCount;
+       die();
+       $products->setProductName($result['productName']);
+       $products->setDetails($result['details']);
+       $products->setPrice($result['price']);
 
 
        return $products;
