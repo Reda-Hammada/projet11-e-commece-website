@@ -61,24 +61,20 @@ $productDetails = new cart();
         <main>
             <section>
                 <table>
-                    <thead>
+                    
                         <tr>
                             <th>
                                 product name 
                             </th>
-                        </tr>
-                        <tr>
+                        
                             <th>
                                 details
                             </th>
-                        </tr>
-                        <tr>
+                        
                             <th>
                                 price
                             </th>
                         </tr>
-                    </thead>
-                    <tbody>
                     <?php
 
                     foreach($cart as $productDetails){ ?>
@@ -89,7 +85,6 @@ $productDetails = new cart();
                         </tr>
                         <?php  } ?>
 
-                    </tbody>
                 </table>
                 
             
