@@ -60,7 +60,7 @@ class productManager {
   }
    
   // get one particular product to display on product details page 
-  
+
   public function  getProductForDetails($id){
   
     $selectProduct = "SELECT * FROM products WHERE id = '$id' ";
@@ -92,12 +92,21 @@ class productManager {
     
   }
 
-  public function  startSession($arrCart){
+  public function  startSession($convert){
     
       session_start();
-       $convertIntoString = implode("",$arrCart);
-      $_SESSION['cart'] = $convertIntoString;
+      $_SESSION['cart'] = $convert;
+
     }
+
+
+  public function getCart(){
+
+    if(isset($_SESSION['cart'])){
+
+      
+    }
+  }
 
 
 

@@ -22,14 +22,10 @@ foreach($productDetails as $productCart);
     
     );
 
-
-
-
-
 $convert = implode("",$arrCart);
 
 $cart = new productManager();
-$cart->startSession($arrCart);
+$cart->startSession($convert);
 
 
 
