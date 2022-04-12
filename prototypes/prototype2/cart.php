@@ -3,7 +3,6 @@
 
 require 'productsManager.php';
 
-if($_GET['id']){
 
     $id = $_GET['id'];
 
@@ -11,23 +10,19 @@ if($_GET['id']){
 
     $cart->getProductForCart($id);
 
-    
-}
-
-$cart =  new productManager();
-
 $productDetails  = $cart->getProductForCart($id);
 
-foreach($cartDetails as $productCart){
+foreach($productDetails as $productCart);
 
     $arrCart = array(
     
         'productName' => $productCart->getNameProduct(),
-        'details' => $productCart->getDetails()
+        'details' => $productCart->getDetails(),
+        'price' => $productCart->getPrice()
     
     );
 
-}
+
 
 
 
@@ -78,6 +73,6 @@ $cart->startSession($arrCart);
                 </div>
             </div>
         </nav>
-        <p> <?php echo print_r($convert) ?> </p>
+        <p>  </p>
 </body>
 </html>

@@ -60,6 +60,7 @@ class productManager {
   }
    
   // get one particular product to display on product details page 
+  
   public function  getProductForDetails($id){
   
     $selectProduct = "SELECT * FROM products WHERE id = '$id' ";
@@ -120,9 +121,12 @@ class productManager {
         $productCart->setDetails($cart['description']);
         $productCart->setPrice($cart['price']);
 
-      }
+
+    }
+
+      
      
-      array_push($detailsForCart, $productproductCart);
+      array_push($detailsForCart, $productCart);
 
       return $detailsForCart;
     }

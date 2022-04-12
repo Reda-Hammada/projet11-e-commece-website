@@ -1,6 +1,8 @@
 <?php
  
  class cart{
+
+  
     private $id;
     private $nameProduct;
     private $details;
