@@ -92,14 +92,18 @@ class productManager {
     
   }
 
-  public function  startSession($convert){
+  // start session and store product in session for cart 
+
+  public function  startSession($arrCart){
     
       session_start();
-      $_SESSION['cart'] = $convert;
+      $_SESSION['cart'] = $arrCart;
 
     }
 
 
+    
+// return cart session 
   public function getCart(){
 
     if(isset($_SESSION['cart'])){
@@ -114,7 +118,7 @@ class productManager {
 
 
 
-
+// bring product from database to insert it into the cart 
     public function getProductForCart($id){
               
       $product = "SELECT * FROM products WHERE id = '$id'";

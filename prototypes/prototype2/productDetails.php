@@ -15,6 +15,7 @@ if(isset($_GET['id'])){
 $data =  $productManager->getProductForDetails($id);
 
 
+
 ?>
 
 
@@ -79,7 +80,7 @@ $data =  $productManager->getProductForDetails($id);
                         <div class="d-flex">
                             <form method="GET" action="addCart.php">
                                 <input type ='hidden' name = 'id' value= <?php echo  $details->getId() ?>>
-                                <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /><br>
+                                <input name="quantity" class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /><br>
                                 <a href="cart.php?id=<?php  echo $details->getId() ?>">
                                 <button  class="btn btn-outline-dark flex-shrink-0">
                                 <i class="bi-cart-fill me-1"></i> Add to cart</button></a>

@@ -8,6 +8,11 @@ $insertCart = new productManager();
 
 $cart = $insertCart->getCart();
 
+$productDetails = new cart();
+
+
+
+
 
 
 
@@ -22,10 +27,16 @@ $cart = $insertCart->getCart();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Favicon-->
+         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
-nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -34,13 +45,7 @@ nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
+                         
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -53,5 +58,15 @@ nav class="navbar navbar-expand-lg navbar-light bg-light">
                 </div>
             </div>
         </nav> 
+        <main>
+            <section>
+                <?php
+            foreach($cart as $productDetails){ ?>
+
+                <h1><?php  print_r($productDetails) ?></h1>
+
+                <?php  } ?>
+            </section>
+        </main>
 </body>
 </html>
