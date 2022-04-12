@@ -4,6 +4,7 @@ include 'products.php';
 include 'cartClass.php';
 
 // connect DataBase
+
 class productManager {
 
     private function  connectDB(){
@@ -29,6 +30,7 @@ class productManager {
 
 
     // get all products from database to display on main page
+
    public function getAllProducts(){
 
 
@@ -104,6 +106,7 @@ class productManager {
 
     
 // return cart session 
+
   public function getCart(){
 
     if(isset($_SESSION['cart'])){
@@ -119,6 +122,7 @@ class productManager {
 
 
 // bring product from database to insert it into the cart 
+
     public function getProductForCart($id,$quantity){
               
       $product = "SELECT * FROM products WHERE id = '$id'";
