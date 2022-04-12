@@ -77,11 +77,13 @@ $productDetails = new cart();
                         </tr>
                     <?php
 
-                    foreach($cart as $productDetails){ ?>
+                    foreach($cart as $productDetails => $product ){ ?>
 
 
                         <tr>
-                            <td> <?php print_r($productDetails); ?>
+                            <td> <?php echo var_dump($cart)?></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <?php  } ?>
 
