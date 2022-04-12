@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 require 'productsManager.php';
 
@@ -10,9 +10,9 @@ require 'productsManager.php';
 
     $cart = new productManager();
 
-    $cart->getProductForCart($id);
+    $cart->getProductForCart($id,$quantity);
 
-$productDetails  = $cart->getProductForCart($id);
+$productDetails  = $cart->getProductForCart($id,$quantity);
 
 foreach($productDetails as $productCart);
 

@@ -119,7 +119,7 @@ class productManager {
 
 
 // bring product from database to insert it into the cart 
-    public function getProductForCart($id){
+    public function getProductForCart($id,$quantity){
               
       $product = "SELECT * FROM products WHERE id = '$id'";
       $query = mysqli_query($this->connectDB(), $product);
@@ -135,15 +135,14 @@ class productManager {
         $productCart->setNameProduct($cart['productName']);
         $productCart->setDetails($cart['description']);
         $productCart->setPrice($cart['price']);
+        $productCart->setQuantity($quantity);
 
 
     }
-
-      
-     
       array_push($detailsForCart, $productCart);
 
       return $detailsForCart;
+      
     }
 
   

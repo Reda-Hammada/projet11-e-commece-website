@@ -60,12 +60,39 @@ $productDetails = new cart();
         </nav> 
         <main>
             <section>
-                <?php
-            foreach($cart as $productDetails){ ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                product name 
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                details
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                price
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
 
-                <h1><?php  print_r($productDetails) ?></h1>
+                    foreach($cart as $productDetails){ ?>
 
-                <?php  } ?>
+
+                        <tr>
+                            <td> <?php print_r($productDetails); ?>
+                        </tr>
+                        <?php  } ?>
+
+                    </tbody>
+                </table>
+                
+            
             </section>
         </main>
 </body>
