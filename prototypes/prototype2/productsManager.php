@@ -104,7 +104,9 @@ class productManager {
 
     if(isset($_SESSION['cart'])){
 
-      
+      return $_SESSION['cart'];
+      return array();
+
     }
   }
 
