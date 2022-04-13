@@ -293,7 +293,7 @@ $bringAllProducts =  new productManager();
                                         <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
                                   
                                     <div class="product-action">
-                                       <a href="product-details.html">
+                                       <a href="product-details.php?id=<?php echo $products->getId() ?>">
                                         <button type="button" class="product-action-btn action-btn-cart" >
                                             <span>View Product</span>
                                         </button>
@@ -304,7 +304,7 @@ $bringAllProducts =  new productManager();
                                     <div class="product-rating">
                                         
                                     </div>
-                                    <h4 class="title  text-center"><a href="product-details.html"><?php echo $products->getProductName()  ?></a></h4>
+                                    <h4 class="title  text-center"><a href="product-details.html?id=<?php echo $products->getId() ?>"><?php echo $products->getProductName()  ?></a></h4>
                                     <div class="prices text-center">
                                         <span class="price "><?php echo  $products->getPrice() . " " . "DH" ?></span>
                                     </div>

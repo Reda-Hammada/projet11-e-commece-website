@@ -1,12 +1,16 @@
 <?php 
+ require 'productsManager.php';
 
- if($_SERVER['REQUEST_METHOD'] == 'GET'){
-  
+    $id = $_GET['id'];
+
+    $particularProduct  = new productManager();
     
+ $particularProduct->getProductForDetails($id);
+
+ $product =   $particularProduct->getProductForDetails($id);
+
     
-
-
- }
+ 
 
 
 
@@ -154,15 +158,13 @@
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
                                     <li class="breadcrumb-item active text-dark" aria-current="page">Product Detail</li>
                                 </ol>
                                 <h2 class="page-header-title">Product Detail</h2>
                             </div>
                         </div>
-                        <div class="col-md-7">
-                            <h5 class="showing-pagination-results mt-5 mt-md-9 text-center text-md-end">Showing Single Product</h5>
-                        </div>
+                     
                     </div>
                 </div>
             </section>
@@ -175,52 +177,33 @@
                         <div class="col-lg-6">
                             <div class="product-details-thumb">
                                 <img src="assets/images/shop/product-details/1.webp" width="570" height="693" alt="Image">
-                                <span class="flag-new">new</span>
                             </div>
                         </div>
+                        <?php foreach($product as $details){   ?> 
                         <div class="col-lg-6">
                             <div class="product-details-content">
-                                <h5 class="product-details-collection">Premioum collection</h5>
-                                <h3 class="product-details-title">Offbline Instant Age Rewind Eraser.</h3>
-                                <div class="product-details-review">
-                                    <div class="product-review-icon">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-                                    <button type="button" class="product-review-show">150 reviews</button>
+                                <h3 class="product-details-title"><?php echo $details->getProductName() ?> </h3>
+                          
                                 </div>
                                 <div class="product-details-qty-list">
-                                    <div class="qty-list-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="qtyList1" checked>
-                                        <label class="form-check-label" for="qtyList1">15 ml bottol <b>$250.00</b></label>
-                                    </div>
-
-                                    <div class="qty-list-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="qtyList2">
-                                        <label class="form-check-label" for="qtyList2">25 ml bottol <b>$350.00</b> <span class="extra-offer">extra 25%</span></label>
-                                    </div>
+                                    <?php echo $details->getDetails() ?> 
                                 </div>
                                 <div class="product-details-pro-qty">
                                     <div class="pro-qty">
                                         <input type="text" title="Quantity" value="01">
                                     </div>
                                 </div>
-                                <div class="product-details-shipping-cost">
-                                    <input class="form-check-input" type="checkbox" value="" id="ShippingCost" checked>
-                                    <label class="form-check-label" for="ShippingCost">Shipping from USA, Shipping Fees $4.22</label>
-                                </div>
+                              
                                 <div class="product-details-action">
-                                    <h4 class="price">$254.22</h4>
+                                    <h4 class="price"><?php echo $details->getPrice()  ?></h4>
                                     <div class="product-details-cart-wishlist">
-                                        <button type="button" class="btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal"><i class="fa fa-heart-o"></i></button>
                                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                     <?php } ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-7">
