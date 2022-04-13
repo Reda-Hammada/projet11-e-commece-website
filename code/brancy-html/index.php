@@ -1,3 +1,23 @@
+<?php 
+
+require 'productsManager.php';
+
+$bringAllProducts =  new productManager();
+
+
+ $data = $bringAllProducts->getAllProducts();
+
+
+
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -54,11 +74,7 @@
                     <div class="col-lg-7 col-xl-7 d-none d-lg-block">
                         <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.html">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.html">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                <li class="has-submenu"><a href="index.php">home</a>
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
                                 <li class="has-submenu position-static"><a href="product.html">shop</a>
@@ -262,63 +278,60 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row mb-n4 mb-sm-n10 g-3 g-sm-6">
-                        <div class="col-6 col-lg-4 mb-4 mb-sm-9">
+                 
+                        <div class="col-6 col-lg-4 mb-4 mb-sm-8">
                             <!--== Start Product Item ==-->
+
+                            <?php foreach($data as $products)  {  ?>
+
                             <div class="product-item">
+                        
                                 <div class="product-thumb">
                                     <a class="d-block" href="product-details.html">
                                         <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
                                     </a>
-                                    <span class="flag-new">new</span>
                                     <div class="product-action">
-                                        <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                            <i class="fa fa-expand"></i>
-                                        </button>
+                                       
                                         <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
-                                            <span>Add to cart</span>
+                                            <span>View Product</span>
                                         </button>
-                                        <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                            <i class="fa fa-heart-o"></i>
-                                        </button>
+                                     
                                     </div>
                                 </div>
                                 <div class="product-info">
                                     <div class="product-rating">
-                                        <div class="rating">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                        <div class="reviews">150 reviews</div>
+                                        
                                     </div>
-                                    <h4 class="title"><a href="product-details.html">Readable content DX22</a></h4>
-                                    <div class="prices">
-                                        <span class="price">$210.00</span>
-                                        <span class="price-old">300.00</span>
+                                    <h4 class="title  text-center"><a href="product-details.html"><?php echo $products->getProductName()  ?></a></h4>
+                                    <div class="prices text-center">
+                                        <span class="price "><?php echo  $products->getPrice() . " " . "DH" ?></span>
                                     </div>
                                 </div>
                                 <div class="product-action-bottom">
-                                    <button type="button" class="product-action-btn action-btn-quick-view" data-bs-toggle="modal" data-bs-target="#action-QuickViewModal">
-                                        <i class="fa fa-expand"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal">
-                                        <i class="fa fa-heart-o"></i>
-                                    </button>
-                                    <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
+                                  
+                                    <button type="button" class="product-action-btn " >
                                         <span>Add to cart</span>
                                     </button>
                                 </div>
                             </div>
-                            <!--== End prPduct Item ==-->
-                        </div>
+                            <?  } ?>
                         
+
+
                             <!--== End prPduct Item ==-->
                         </div>
+                    
+                     
+                   
                     </div>
+
+                  
+
                 </div>
+
+          
             </section>
             <!--== End Product Area Wrapper ==-->
 
