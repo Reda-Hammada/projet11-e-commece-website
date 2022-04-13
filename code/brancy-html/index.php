@@ -289,15 +289,15 @@ $bringAllProducts =  new productManager();
                             <div class="product-item">
                         
                                 <div class="product-thumb">
-                                    <a class="d-block" href="product-details.html">
+                                 
                                         <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
-                                    </a>
+                                  
                                     <div class="product-action">
-                                       
-                                        <button type="button" class="product-action-btn action-btn-cart" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">
+                                       <a href="product-details.html">
+                                        <button type="button" class="product-action-btn action-btn-cart" >
                                             <span>View Product</span>
                                         </button>
-                                     
+                                       </a>
                                     </div>
                                 </div>
                                 <div class="product-info">
@@ -308,13 +308,13 @@ $bringAllProducts =  new productManager();
                                     <div class="prices text-center">
                                         <span class="price "><?php echo  $products->getPrice() . " " . "DH" ?></span>
                                     </div>
+                                
                                 </div>
-                                <div class="product-action-bottom">
-                                  
-                                    <button type="button" class="product-action-btn " >
-                                        <span>Add to cart</span>
-                                    </button>
-                                </div>
+                       
+                                 
+                                
+                             
+                                
                             </div>
                             <?  } ?>
                         

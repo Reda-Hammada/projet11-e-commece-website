@@ -1,3 +1,21 @@
+<?php 
+
+ if($_SERVER['REQUEST_METHOD'] == 'GET'){
+  
+    
+    
+
+
+ }
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -54,53 +72,12 @@
                     <div class="col-lg-6 d-none d-lg-block">
                         <div class="header-navigation">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.html">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.html">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                <li class="has-submenu"><a href="index.php">home</a>
+                                   
                                 </li>
                                 <li><a href="about-us.html">about</a></li>
                                 <li class="has-submenu position-static"><a href="product.html">shop</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">Shop Layout</a>
-                                            <ul>
-                                                <li><a href="product.html">Shop 3 Column</a></li>
-                                                <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                                <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                                <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Single Product</a>
-                                            <ul>
-                                                <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                                <li><a href="product-details.html">Single Product Variable</a></li>
-                                                <li><a href="product-details-group.html">Single Product Group</a></li>
-                                                <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Others Pages</a>
-                                            <ul>
-                                                <li><a href="product-cart.html">Shopping Cart</a></li>
-                                                <li><a href="product-checkout.html">Checkout</a></li>
-                                                <li><a href="product-wishlist.html">Wishlist</a></li>
-                                                <li><a href="product-compare.html">Compare</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu"><a href="blog.html">Blog</a>
-                                    <ul class="submenu-nav">
-                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
-                                            <ul class="submenu-nav">
-                                                <li><a href="blog.html">Blog Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
+                                    
                                 <li class="has-submenu"><a href="account-login.html">Pages</a>
                                     <ul class="submenu-nav">
                                         <li><a href="account-login.html">My Account</a></li>
@@ -197,7 +174,7 @@
                     <div class="row product-details">
                         <div class="col-lg-6">
                             <div class="product-details-thumb">
-                                <img src="assets/images/shop/product-details/4.webp" width="570" height="693" alt="Image">
+                                <img src="assets/images/shop/product-details/1.webp" width="570" height="693" alt="Image">
                                 <span class="flag-new">new</span>
                             </div>
                         </div>
@@ -205,7 +182,7 @@
                             <div class="product-details-content">
                                 <h5 class="product-details-collection">Premioum collection</h5>
                                 <h3 class="product-details-title">Offbline Instant Age Rewind Eraser.</h3>
-                                <div class="product-details-review mb-7">
+                                <div class="product-details-review">
                                     <div class="product-review-icon">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
@@ -215,12 +192,31 @@
                                     </div>
                                     <button type="button" class="product-review-show">150 reviews</button>
                                 </div>
-                                <p class="mb-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, repellendus. Nam voluptate illo ut quia non sapiente provident alias quos laborum incidunt, earum accusamus, natus. Vero pariatur ut veniam sequi amet consectetur.</p>
+                                <div class="product-details-qty-list">
+                                    <div class="qty-list-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="qtyList1" checked>
+                                        <label class="form-check-label" for="qtyList1">15 ml bottol <b>$250.00</b></label>
+                                    </div>
+
+                                    <div class="qty-list-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="qtyList2">
+                                        <label class="form-check-label" for="qtyList2">25 ml bottol <b>$350.00</b> <span class="extra-offer">extra 25%</span></label>
+                                    </div>
+                                </div>
+                                <div class="product-details-pro-qty">
+                                    <div class="pro-qty">
+                                        <input type="text" title="Quantity" value="01">
+                                    </div>
+                                </div>
+                                <div class="product-details-shipping-cost">
+                                    <input class="form-check-input" type="checkbox" value="" id="ShippingCost" checked>
+                                    <label class="form-check-label" for="ShippingCost">Shipping from USA, Shipping Fees $4.22</label>
+                                </div>
                                 <div class="product-details-action">
                                     <h4 class="price">$254.22</h4>
                                     <div class="product-details-cart-wishlist">
                                         <button type="button" class="btn-wishlist" data-bs-toggle="modal" data-bs-target="#action-WishlistModal"><i class="fa fa-heart-o"></i></button>
-                                        <button type="button" class="btn ps-5" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Buy Now</button>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#action-CartAddModal">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
