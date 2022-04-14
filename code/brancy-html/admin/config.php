@@ -1,18 +1,22 @@
 <?php 
+class dataBase {
 
-$connect = null; 
+
+  
 
 // connect DataBase
 
-function connectDatabase($connect){
+ public function connectDataBase(){
+ 
+    $connect = null; 
 
-    if($connect == null ){
+    if($connect == null ) {
 
         $connect = mysqli_connect('localhost','Reda','123456','ecommercemakeup');
     }
 
 
-    else{
+    else {
 
         $message = "Database connection error";
 
@@ -23,5 +27,5 @@ function connectDatabase($connect){
     return $connect;
 }
 
-
+}
 ?>
