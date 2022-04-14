@@ -77,7 +77,7 @@ $productDetails = new cart();
                         </tr>
                     <?php
 
-                    foreach($cart as $productDetails => $product ){ ?>
+                    foreach($cart as $productDetails){ ?>
 
 
                         <tr>

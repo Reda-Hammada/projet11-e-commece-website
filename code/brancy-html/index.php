@@ -107,8 +107,8 @@ $bringAllProducts =  new productManager();
                   </svg>
                 </span>
                             </button>
-
-                            <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
+                            <a href="product-cart.php">
+                            <button class="header-action-btn" type="button" >
                                 <span class="icon">
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
@@ -121,7 +121,7 @@ $bringAllProducts =  new productManager();
                   </svg>
                 </span>
                             </button>
-
+                            </a>
                             <a class="header-action-btn" href="account-login.html">
                                 <span class="icon">
                   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -284,7 +284,7 @@ $bringAllProducts =  new productManager();
                         <div class="col-6 col-lg-4 mb-4 mb-sm-8">
                             <!--== Start Product Item ==-->
 
-                            <?php foreach($data as $products)  {  ?>
+                            <?php foreach($data as $products){  ?>
 
                             <div class="product-item">
                         
@@ -316,7 +316,7 @@ $bringAllProducts =  new productManager();
                              
                                 
                             </div>
-                            <?  } ?>
+                            <?php  } ?>
                         
 
 

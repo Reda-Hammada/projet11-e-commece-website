@@ -76,6 +76,8 @@ $data =  $productManager->getProductForDetails($id);
                         <div class="fs-5 mb-5">
                             <span><?php echo $details->getPrice() ?> DH</span>
                         </div>
+                        <h2>Description :</h2>
+
                         <p class="lead"><?php echo $details->getDetails() ?></p>
                         <div class="d-flex">
                             <form method="GET" action="addCart.php">
