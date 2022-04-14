@@ -27,13 +27,20 @@
 
   public function getUserReference(){
 
-    return $this->getUserReference;
+    return $this->UserReference;
   }
 
-  public function setCarlineList($cartLineList){
+  public function setCarLineList($cartLineList){
 
     array_push($this->cartLineList, $cartLineList);
+
   }
+
+  public function getCartLineList() {
+
+    return $this->cartLineList; 
+  }
+
  }
 
 
