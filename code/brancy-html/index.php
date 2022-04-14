@@ -1,6 +1,7 @@
 <?php 
 
 require 'productsManager.php';
+require 'cartManager.php';
 
 $bringAllProducts =  new productManager();
 

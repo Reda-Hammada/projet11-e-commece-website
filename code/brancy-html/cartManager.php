@@ -3,15 +3,20 @@ class cartManager {
 
 
     public function initCookies(){
-      
+
+
         $idCookies = uniqid();
         $expire = time()  +  (2592000 * 30);
-        setcookie($idCookies,$expire, '/');
+        $name ="reda";
+        $cookie = setcookie($idCookies,$name,$expire, "/"); 
 
+     
+       
+      
     }
 
 
-    
+
 }
 
 

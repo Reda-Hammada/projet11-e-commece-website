@@ -1,19 +1,17 @@
 <?php 
+
+session_start();
+
  require 'productsManager.php';
 
     $id = $_GET['id'];
 
     $particularProduct  = new productManager();
     
- $particularProduct->getProductForDetails($id);
+    $particularProduct->getProductForDetails($id);
 
- $product =   $particularProduct->getProductForDetails($id);
-
+    $product =   $particularProduct->getProductForDetails($id);
     
- 
-
-
-
 
 ?>
 
