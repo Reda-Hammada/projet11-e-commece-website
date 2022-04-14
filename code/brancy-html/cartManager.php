@@ -6,8 +6,12 @@ class cartManager {
       
         $idCookies = uniqid();
         $expire = time()  +  (2592000 * 30);
+        setcookie($idCookies,$expire, '/');
 
     }
+
+
+    
 }
 
 
