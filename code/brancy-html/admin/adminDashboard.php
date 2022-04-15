@@ -1,4 +1,5 @@
 <?php
+require 'categoryManager.php';
 
 session_start();
 
@@ -17,9 +18,22 @@ else {
 }
 
 
+if(!empty($_POST)){
 
+
+    
+    $category = $_POST['category'];
+    
+    $categoryManager = new categoryManager();
+
+    $categoryManager->addCategory($category);
+
+
+}
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +70,7 @@ else {
                         </div>
                     </div>
                     <div id ="navbar1" class="sb-sidenav-footer ">
-                        <a href="logout.php">
-                            <button class="btn  bg-light">Log out<button>
+                            <a href="logout.php" class="btn  bg-light">Log out
                         </a>
                     </div>
                 </nav>
@@ -75,11 +88,14 @@ else {
                                 <form class=" row g-3" id="formSubmit">
                                     <h2>Insert Category</h2>
                                     <div class="col-md-6">
-                                      <label for="titre" class="form-label">Category name</label>
-                                      <input  type="text" class="form-control" id="inputTitle" >
+                                        <form method="post" >
+                                            <label for="titre" class="form-label">Category name</label>
+                                            <input name="category"  type="text" class="form-control" id="inputTitle" >
+                                            <input type ="submit" name="addCategory" value ="add Category"  class="btn btn-success mt-2">
+                                        </form>
                                     </div>
                                     <div class="col-12">
-                                      <a class="btn btn-success">Add Category</a>
+                                      
                                     </div>
                                   </form>
                             </div>
@@ -96,8 +112,8 @@ else {
                                 <table class="table" id="worksTable">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Category</th>
-                                           
                                         </tr>
                                     </thead>
                                     <tbody>

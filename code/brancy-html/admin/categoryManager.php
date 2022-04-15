@@ -3,9 +3,22 @@
 require 'config.php';
 require 'categoryClass.php';
 
-$configDatabase = new dataBase();
-
-$database = $configDatabase->connectDataBase();
+class categoryManager {
 
 
+    public function addCategory($category){
+
+            
+    $configDatabase = new dataBase();
+    $configDatabase->connectDataBase();
+    $insertCategory = "INSERT INTO category (categoryName) VALUES ('$category')";
+    mysqli_query($configDatabase->connectDataBase(), $insertCategory);
+
+    }
+
+
+    
+
+
+}
 ?>
