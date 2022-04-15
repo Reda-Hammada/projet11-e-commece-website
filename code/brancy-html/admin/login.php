@@ -27,11 +27,7 @@ $connect = $database->connectDatabase();
 
     }
 
-    else { 
-
-       
-        
-    }
+    
 
 
 
