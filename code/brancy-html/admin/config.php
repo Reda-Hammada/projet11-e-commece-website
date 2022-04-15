@@ -1,9 +1,6 @@
 <?php 
 class dataBase {
 
-
-  
-
 // connect DataBase
 
  public function connectDataBase(){

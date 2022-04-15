@@ -8,24 +8,29 @@ $database = new dataBase();
 
 $connect = $database->connectDatabase();
 
-// bring admin 
+// bring admin credentials
+
     $admin = "SELECT * FROM user";
     $query = mysqli_query($connect, $admin);
     $result = mysqli_fetch_assoc($query);
 
-    $usernmae = $result['username'];
+    $username = $result['username'];
     $password = $result['password'];
 
    
-    if($_POST['username'] == $usernmae && $_POST['password'] == $password){
-
+    if($_POST['username'] == $username && $_POST['password'] == $password){
+        
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+        
         header('location:adminDashboard.php');
 
     }
 
     else { 
 
-        echo "wrong pass";
+       
+        
     }
 
 
