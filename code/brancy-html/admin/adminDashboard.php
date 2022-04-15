@@ -22,11 +22,12 @@ if(!empty($_POST)){
 
 
     
-    $category = $_POST['category'];
     
     $categoryManager = new categoryManager();
-
-    $categoryManager->addCategory($category);
+    
+    $Category = new category();
+    $Category->setCategoryName($_POST['category']);
+    $categoryManager->addCategory($Category);
 
 
 }
@@ -88,10 +89,10 @@ if(!empty($_POST)){
                                 <form class=" row g-3" id="formSubmit">
                                     <h2>Insert Category</h2>
                                     <div class="col-md-6">
-                                        <form method="post" >
+                                        <form method="POST" >
                                             <label for="titre" class="form-label">Category name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" >
-                                            <input type ="submit" name="addCategory" value ="add Category"  class="btn btn-success mt-2">
+                                            <input name="addCategory" type ="submit"  value ="add Category"  class="btn btn-success mt-2">
                                         </form>
                                     </div>
                                     <div class="col-12">

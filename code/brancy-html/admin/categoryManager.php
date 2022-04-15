@@ -6,11 +6,12 @@ require 'categoryClass.php';
 class categoryManager {
 
 
-    public function addCategory($category){
+    public function addCategory($Category){ 
 
-            
+    $category = $Category->getCategoryName();
     $configDatabase = new dataBase();
     $configDatabase->connectDataBase();
+    
     $insertCategory = "INSERT INTO category (categoryName) VALUES ('$category')";
     mysqli_query($configDatabase->connectDataBase(), $insertCategory);
 
