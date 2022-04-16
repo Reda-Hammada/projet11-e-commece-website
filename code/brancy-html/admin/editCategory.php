@@ -15,14 +15,20 @@ if($_GET):
 endif;
 
 
-if(!empty($_GET)):
+if($_SERVER["REQUEST_METHOD"] == "POST"):
 
+     $editedCategory = new category();
+     $post = $_POST['category'];
 
+     $editedCategory->setCategoryName($post);
+     $categoryEdit->editCategory($id,$editedCategory);
 
+     header('location:adminDashboard.php');
 
 
 
 endif;
+
 
 
 ?>
@@ -85,16 +91,15 @@ endif;
                                 <?php foreach($data as $fetchByIdObject){ ?>
 
 
-                                <form class=" row g-3" id="formSubmit">
+                                <form class=" row g-3" id="formSubmit" method="post">
                                     <h2>Edit Category</h2>
                                     <div class="col-md-6">
 
-                                        <form method="get" >
                                             <label for="titre" class="form-label">Category name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" value="<?php echo implode($fetchByIdObject->getCategoryName());?>" >
                                            
                                             <input type="submit"  class="btn btn-success mt-2" value ="Update Category">
-                                        </form>
+                                        
                                       
                                     </div>
                                     <div class="col-12">

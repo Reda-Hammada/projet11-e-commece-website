@@ -73,10 +73,13 @@ class categoryManager {
 
     // edit category 
 
-    public function editCategory($id){
-
+    public function editCategory($id,$editedCategory){
+        
+        $newCategoryName = $editedCategory->getCategoryName();
         $configDatabase =  new dataBase();
         $database = $configDatabase->connectDataBase();
+        $query = "UPDATE category SET categoryName = '$newCategoryName' WHERE id = '$id'";
+        mysqli_query($database, $query);
 
 
 
