@@ -19,16 +19,24 @@ else {
 }
 
 
-if(!empty($_GET)){
+if(!empty($_POST)){
     
   
     $categoryAdd = new category();
-    $categoryAdd->setCategoryName($_GET['category']);
+    $categoryAdd->setCategoryName($_POST['category']);
     $categoryManager = new categoryManager();
     $categoryManager->addCategory($categoryAdd);
 
 
 }
+
+
+$fetchCategory = new categoryManager();
+
+$data = $fetchCategory-> displayCategory();
+
+print_r($data);
+
 
 ?>
 
@@ -87,7 +95,7 @@ if(!empty($_GET)){
                                 <form class=" row g-3" id="formSubmit">
                                     <h2>Insert Category</h2>
                                     <div class="col-md-6">
-                                        <form method="get" >
+                                        <form method="post" >
                                             <label for="titre" class="form-label">Category name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" >
                                             <input type="submit"  class="btn btn-success mt-2" value ="Add Category">
@@ -113,12 +121,17 @@ if(!empty($_GET)){
                                         <tr>
                                             <th>Id</th>
                                             <th>Category</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach($data as $categoryFetch){ ?>
                                         <tr>
-
+                                               <td> <?php echo $categoryFetch->getId(); ?></td>
+                                                <td> <?php echo $categoryFetch->getCategoryName() ?></td>
                                         </tr>
+
+                                        <?php } ?>
                                     </tbody>
                                         
                                     

@@ -6,6 +6,7 @@ require 'categoryClass.php';
 class categoryManager {
 
 // insert categories into database 
+
     public function addCategory($categoryAdd){ 
     
     $configDatabase = new dataBase();
@@ -19,11 +20,12 @@ class categoryManager {
     }
 
     // fetch categories to display them on the admin dashboard
+
     public function displayCategory(){
 
         $configDatabase = new dataBase();
         $configDatabase->connectDataBase();
-        $fetchCategories = "SELECT * FROM category";
+        $fetchCategories = "SELECT id,categoryName FROM category";
         $query = mysqli_query($configDatabase->connectDataBase(), $fetchCategories);
         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
         $categoryFetch =  new category();
