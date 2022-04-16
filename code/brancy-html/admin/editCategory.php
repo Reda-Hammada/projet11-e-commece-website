@@ -7,7 +7,6 @@ if($_GET):
 
 
     $id = $_GET['id'];
-    
     $categoryEdit = new categoryManager();
     $data = $categoryEdit->fetchCategoryById($id);
     
