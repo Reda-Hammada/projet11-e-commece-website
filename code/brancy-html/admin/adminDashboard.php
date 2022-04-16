@@ -71,8 +71,10 @@ $data = $fetchCategory-> displayCategory();
                            
                            
                             <a id="loged" class="nav-link" href="adminDashboard.php">
-                                <div id="loged"  class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Categories
+                            </a>
+                            <a id="loged" class="nav-link" href="adminDashboard.php">
+                                Products
                             </a>
                         </div>
                     </div>

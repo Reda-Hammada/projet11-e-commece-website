@@ -48,10 +48,36 @@ class categoryManager {
 
     }
 
+    public function fetchCategoryById($id) {
+
+        $configDatabase = new dataBase();
+        $database = $configDatabase->connectDataBase();
+        $fetch = "SELECT categoryName FROM category WHERE id ='$id'";
+        $query = mysqli_query($database, $fetch);
+        $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+
+        $fetchArray = array();
+
+        foreach($result as $categoryById){
+
+            $fetchByIdObject = new category();
+            $fetchByIdObject->setCategoryName($categoryById);
+            array_push($fetchArray, $fetchByIdObject);
+
+        }
+
+        return $fetchArray;
+
+
+    }
 
     // edit category 
 
-    public function editCategory(){
+    public function editCategory($id){
+
+        $configDatabase =  new dataBase();
+        $database = $configDatabase->connectDataBase();
+
 
 
     }
