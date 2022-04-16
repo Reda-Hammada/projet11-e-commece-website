@@ -129,8 +129,8 @@ print_r($data);
                                         <tr>
                                                <td> <?php echo $categoryFetch->getId(); ?></td>
                                                 <td> <?php echo $categoryFetch->getCategoryName() ?></td>
-                                                <td> <a class="btn btn-success mt-2" href =editCategory.php>Edit</a></td>
-                                                <td> <a href="deleteCategory.php" class="btn btn-danger mt-2">Delete</a>
+                                                <td> <a class="btn btn-success mt-2" href ="editCategory.php?id=<?php echo $categoryFetch->getId() ?>">Edit</a></td>
+                                                <td> <a href="deleteCategory.php?id= <?php echo $categoryFetch->getId() ?>" class="btn btn-danger mt-2">Delete</a>
                                         </tr>
 
                                         <?php } ?>

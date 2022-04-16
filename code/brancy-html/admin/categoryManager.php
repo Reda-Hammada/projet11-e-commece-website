@@ -49,6 +49,22 @@ class categoryManager {
     }
 
 
+    // edit category 
+
+    public function editCategory(){
+
+
+    }
+
+
+    // Delete category 
+
+    public function deleteCategory(){
+
+
+    }
+
+
     
 
 
