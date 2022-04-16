@@ -3,8 +3,7 @@
 require 'categoryManager.php';
 
 $categoryAdd = new categoryManager();
-
-$categoryAdd->addCategory($category);
+$categoryAdd->addCategory( $_POST['category']);
 
 
 

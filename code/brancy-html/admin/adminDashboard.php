@@ -1,6 +1,7 @@
 <?php
 require 'categoryManager.php';
 
+
 session_start();
 
 $username = $_SESSION['username'];
@@ -18,16 +19,13 @@ else {
 }
 
 
-if(!empty($_POST)){
-
-
+if(!empty($_GET)){
     
-    
+  
+    $categoryAdd = new category();
+    $categoryAdd->setCategoryName($_GET['category']);
     $categoryManager = new categoryManager();
-    
-    $Category = new category();
-    $Category->setCategoryName($_POST['category']);
-    $categoryManager->addCategory($Category);
+    $categoryManager->addCategory($categoryAdd);
 
 
 }
@@ -89,10 +87,10 @@ if(!empty($_POST)){
                                 <form class=" row g-3" id="formSubmit">
                                     <h2>Insert Category</h2>
                                     <div class="col-md-6">
-                                        <form method="POST" >
+                                        <form method="get" >
                                             <label for="titre" class="form-label">Category name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" >
-                                            <input name="addCategory" type ="submit"  value ="add Category"  class="btn btn-success mt-2">
+                                            <input type="submit"  class="btn btn-success mt-2" value ="Add Category">
                                         </form>
                                     </div>
                                     <div class="col-12">

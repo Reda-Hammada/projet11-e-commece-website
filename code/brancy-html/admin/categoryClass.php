@@ -17,9 +17,9 @@
         return $this->id;
     }
 
-    public function setCategoryName($categoryName){
+    public function setCategoryName($value){
 
-        $this->cetgoryName = $categoryName;
+        $this->categoryName = $value;
 
     }
 
