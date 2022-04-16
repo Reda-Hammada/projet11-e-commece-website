@@ -19,11 +19,11 @@ else {
 }
 
 
-if(!empty($_POST)){
+if(!empty($_GET)){
     
   
     $categoryAdd = new category();
-    $categoryAdd->setCategoryName($_POST['category']);
+    $categoryAdd->setCategoryName($_GET['category']);
     $categoryManager = new categoryManager();
     $categoryManager->addCategory($categoryAdd);
 
@@ -35,7 +35,7 @@ $fetchCategory = new categoryManager();
 
 $data = $fetchCategory-> displayCategory();
 
-print_r($data);
+
 
 
 ?>
@@ -95,7 +95,7 @@ print_r($data);
                                 <form class=" row g-3" id="formSubmit">
                                     <h2>Insert Category</h2>
                                     <div class="col-md-6">
-                                        <form method="post" >
+                                        <form method="get" >
                                             <label for="titre" class="form-label">Category name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" >
                                             <input type="submit"  class="btn btn-success mt-2" value ="Add Category">

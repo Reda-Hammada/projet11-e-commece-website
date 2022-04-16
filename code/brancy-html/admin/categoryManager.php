@@ -59,7 +59,14 @@ class categoryManager {
 
     // Delete category 
 
-    public function deleteCategory(){
+    public function deleteCategory($id){
+
+
+        $configDatabase = new dataBase();
+        $database = $configDatabase->connectDataBase();
+        $query = " DELETE from category WHERE id = '$id'";
+        mysqli_query($database, $query);
+
 
 
     }
