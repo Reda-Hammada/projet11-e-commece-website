@@ -113,7 +113,7 @@ print_r($data);
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-book me-1"></i>
-                                Ouvrages
+                                Categories
                             </div>
                             <div class="card-body">
                                 <table class="table" id="worksTable">
@@ -129,6 +129,8 @@ print_r($data);
                                         <tr>
                                                <td> <?php echo $categoryFetch->getId(); ?></td>
                                                 <td> <?php echo $categoryFetch->getCategoryName() ?></td>
+                                                <td> <a class="btn btn-success mt-2" href =editCategory.php>Edit</a></td>
+                                                <td> <a href="deleteCategory.php" class="btn btn-danger mt-2">Delete</a>
                                         </tr>
 
                                         <?php } ?>

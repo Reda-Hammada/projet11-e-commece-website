@@ -25,22 +25,23 @@ class categoryManager {
 
         $configDatabase = new dataBase();
         $configDatabase->connectDataBase();
-        $fetchCategories = "SELECT id,categoryName FROM category";
+        $fetchCategories = "SELECT * FROM category";
         $query = mysqli_query($configDatabase->connectDataBase(), $fetchCategories);
         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-        $categoryFetch =  new category();
 
         $categoriesArray = array();
 
         foreach($result  as $categories){
 
+            $categoryFetch =  new category();
             $categoryFetch->setId($categories['id']);
             $categoryFetch->setCategoryName($categories['categoryName']);
+            array_push($categoriesArray, $categoryFetch);
+
 
 
         }
 
-        array_push($categoriesArray, $categoryFetch);
 
         return $categoriesArray;
 
