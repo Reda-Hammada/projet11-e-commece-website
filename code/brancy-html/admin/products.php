@@ -1,45 +1,17 @@
 <?php
-require 'categoryManager.php';
-
 
 session_start();
 
-$username = $_SESSION['username'];
-$password = $_SESSION['password'];
+if($_SESSION['username']):
 
-if($username && $password){
-
-  $username;
-
-}
-
-else {
-
-    header('location:login.php');
-}
+   $username = $_SESSION['username'];
 
 
-if(!empty($_GET)){
-    
-  
-    $categoryAdd = new category();
-    $categoryAdd->setCategoryName($_GET['category']);
-    $categoryManager = new categoryManager();
-    $categoryManager->addCategory($categoryAdd);
-
-
-}
-
-
-$fetchCategory = new categoryManager();
-
-$data = $fetchCategory-> displayCategory();
-
+endif;
 
 
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -73,7 +45,7 @@ $data = $fetchCategory-> displayCategory();
                             <a id="loged" class="nav-link" href="adminDashboard.php">
                                 Categories
                             </a>
-                            <a id="loged" class="nav-link" href="products.php">
+                            <a id="loged" class="nav-link" href="adminDashboard.php">
                                 Products
                             </a>
                         </div>
@@ -95,12 +67,49 @@ $data = $fetchCategory-> displayCategory();
                               
 
                                 <form class=" row g-3" id="formSubmit">
-                                    <h2>Insert Category</h2>
-                                    <div class="col-md-6">
-                                        <form method="get" >
-                                            <label for="titre" class="form-label">Category name</label>
+                                    <h2>Add Product</h2>
+                                    <div class="col-6">
+                                        <form>
+                                            <label for="titre" class="form-label">Product Name</label>
                                             <input name="category"  type="text" class="form-control" id="inputTitle" >
-                                            <input type="submit"  class="btn btn-success mt-2" value ="Add Category">
+                                            <label for="auteur" class="form-label">Details</label>
+                                      <input type="text" class="form-control" id="inputAuthor" name="details" >
+                                    </div>
+                
+                                    <div class="col-6">
+                                      <label for="price" class="form-label">price</label>
+                                      <input type="number" class="form-control" id="inputPrix" name ="price" >
+                                      <label for="date" class="form-label">Expiration date</label>
+                                      <input type="date" class="form-control" id="inputDate" name="expirationDate">
+
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <label for="price" class="form-label">Image</label>
+                                      <input type="file" class="form-control" id="inputPrix" name ="image" >
+                                      </div>
+                                    <div class="col-6">
+                                      
+                                      <label for="date" class="form-label">Stock Quantity</label>
+                                      <input type="number" class="form-control" id="inputDate" name="stockQuantity">
+                                      
+                                      
+                                    </div>
+                                    <div class="col-12">
+                                    <label for="list" class="form-label">Category :</label>
+                                        <select id="inputLanguage" name="category">
+                                            <option></option>
+                                            <option value="Soin du cheveux">Soin du cheveux</option>
+                                            <option value="soins de la peau">soins de la peau</option>
+                                            <option value="Rouge a levres">Rouge a levres</option>
+                                            <option value="soins du visage">soins du visage</option>
+                                            <option value ="Fard a joues">Fard a joues</option>
+                                        </select>
+                                    <div>
+                                    <div class="col-12">
+                                       
+                                            <input type="submit"  class="btn btn-success mt-2" value ="Add Product">
+                                            
                                         </form>
                                     </div>
                                     <div class="col-12">
@@ -114,27 +123,28 @@ $data = $fetchCategory-> displayCategory();
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                Categories
+                             
+                                Products
                             </div>
                             <div class="card-body">
                                 <table class="table" id="worksTable">
                                     <thead>
                                         <tr>
+                                            <th>Image</th>
                                             <th>Id</th>
-                                            <th>Category</th>
+                                            <th>Product name</th>
+                                            <th>Details</th>
+                                            <th>Price</th>
+                                            <th>Stock quantity</th>
+                                            <th>Expiration Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($data as $categoryFetch){ ?>
                                         <tr>
-                                               <td> <?php echo $categoryFetch->getId(); ?></td>
-                                                <td> <?php echo $categoryFetch->getCategoryName() ?></td>
-                                                <td> <a class="btn btn-success mt-2" href ="editCategory.php?id=<?php echo $categoryFetch->getId() ?>">Edit</a></td>
-                                                <td> <a href="deleteCategory.php?id= <?php echo $categoryFetch->getId() ?>" class="btn btn-danger mt-2">Delete</a>
+                                               
                                         </tr>
 
-                                        <?php } ?>
                                     </tbody>
                                         
                                     
