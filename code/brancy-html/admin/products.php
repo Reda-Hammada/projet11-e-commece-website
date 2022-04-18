@@ -14,18 +14,20 @@ if($_SESSION['username']):
 endif;
 
 
-if(!empty($_POST)):
+if(isset($_POST['submit'])):
 
     $adminProduct = new productManagerAdmin();
     $productClass = new productAdmin();
-    
+    $filename = $_FILES["image"]["name"];
+    $tempname = $_FILES["image"]["tmp_name"];
     $productClass->setProductName($_POST['product']);
     $productClass->setPrice($_POST['price']);
     $productClass->setDetails($_POST['details']);
     $productClass->setCategory($_POST['category']);
     $productClass->setQuantityStock($_POST['stockQuantity']);
     $productClass->setExpirationDate($_POST['date']);
-
+    $productClass->setImage($filename);
+    $adminProduct->uploadImage($filename,$tempname);
     $adminProduct->insertProducts($productClass);
     
 endif;
@@ -128,7 +130,7 @@ endif;
                                     <div>
                                     <div class="col-12">
                                        
-                                            <input type="submit"  class="btn btn-success mt-2" value ="Add Product">
+                                            <input type="submit"  class="btn btn-success mt-2" value ="Add Product" name="submit">
                                             
                                     </div>
                                     <div class="col-12">
