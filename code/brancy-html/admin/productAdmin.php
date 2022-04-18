@@ -6,6 +6,7 @@ class productAdmin {
     private $id;
     private $productName;
     private $price;
+    private $category;
     private $details;
     private $quantityStock;
     private $expirationDate;
@@ -27,6 +28,17 @@ class productAdmin {
 
         $this->productName = $productName;
 
+    }
+
+    public function setCategory($category){
+
+        $this->category = $category;
+
+    }
+
+    public function getCategory(){
+
+        return $this->category;
     }
 
     public function getProductName(){
@@ -74,7 +86,7 @@ class productAdmin {
 
     public function setExpirationDate($expirationDate){
 
-        $this->ExpirationDate = $expirationDate;
+        $this->expirationDate = $expirationDate;
 
     }
 

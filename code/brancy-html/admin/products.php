@@ -2,6 +2,10 @@
 
 session_start();
 
+
+require 'productAdmin.php';
+require 'productManagerAdmin.php';
+
 if($_SESSION['username']):
 
    $username = $_SESSION['username'];
@@ -9,6 +13,22 @@ if($_SESSION['username']):
 
 endif;
 
+
+if(!empty($_POST)):
+
+    $adminProduct = new productManagerAdmin();
+    $productClass = new productAdmin();
+    
+    $productClass->setProductName($_POST['product']);
+    $productClass->setPrice($_POST['price']);
+    $productClass->setDetails($_POST['details']);
+    $productClass->setCategory($_POST['category']);
+    $productClass->setQuantityStock($_POST['stockQuantity']);
+    $productClass->setExpirationDate($_POST['date']);
+
+    $adminProduct->insertProducts($productClass);
+    
+endif;
 
 
 ?>
@@ -66,12 +86,12 @@ endif;
                                 <i class="fas fa-table me-1"></i>
                               
 
-                                <form class=" row g-3" id="formSubmit">
+                                <form class=" row g-3" id="formSubmit" method="POST" enctype="multipart/form-data">
                                     <h2>Add Product</h2>
                                     <div class="col-6">
-                                        <form>
+                            
                                             <label for="titre" class="form-label">Product Name</label>
-                                            <input name="category"  type="text" class="form-control" id="inputTitle" >
+                                            <input name="product"  type="text" class="form-control" id="inputTitle" >
                                             <label for="auteur" class="form-label">Details</label>
                                       <input type="text" class="form-control" id="inputAuthor" name="details" >
                                     </div>
@@ -80,7 +100,7 @@ endif;
                                       <label for="price" class="form-label">price</label>
                                       <input type="number" class="form-control" id="inputPrix" name ="price" >
                                       <label for="date" class="form-label">Expiration date</label>
-                                      <input type="date" class="form-control" id="inputDate" name="expirationDate">
+                                      <input type="date" class="form-control" id="inputDate" name="date">
 
                                     </div>
                                     <div class="col-6">
@@ -110,7 +130,6 @@ endif;
                                        
                                             <input type="submit"  class="btn btn-success mt-2" value ="Add Product">
                                             
-                                        </form>
                                     </div>
                                     <div class="col-12">
                                       
