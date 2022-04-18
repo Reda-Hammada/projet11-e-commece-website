@@ -47,9 +47,10 @@ class productManager {
 
         $products->setId($data['id']);
         $products->setProductName($data['productName']);
-        $products->setDetails($data['description']);
-        $products->setQuantity($data['quantity']);
+        $products->setDetails($data['details']);
+        $products->setQuantity($data['stockQuantity']);
         $products->setPrice($data['price']);
+        $products->setImage($data['img']);
 
         array_push($productsArray, $products);
 
@@ -79,7 +80,7 @@ class productManager {
 
       $productDetails->setId($details['id']);
       $productDetails->setProductName($details['productName']);
-      $productDetails->setDetails($details['description']);
+      $productDetails->setDetails($details['details']);
       $productDetails->setPrice($details['price']);
 
     }

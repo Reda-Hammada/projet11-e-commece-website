@@ -291,7 +291,7 @@ $bringAllProducts =  new productManager();
                         
                                 <div class="product-thumb">
                                  
-                                        <img src="assets/images/shop/1.webp" width="370" height="450" alt="Image-HasTech">
+                                        <img src="<?php echo './admin/asset/images/' . $products->getImage() ?>" width="370" height="450" alt="Image-HasTech">
                                   
                                     <div class="product-action">
                                        <a href="product-details.php?id=<?php echo $products->getId() ?>">

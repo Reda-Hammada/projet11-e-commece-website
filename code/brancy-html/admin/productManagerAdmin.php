@@ -24,11 +24,7 @@ class productManagerAdmin {
 
     mysqli_query($dataBase,$insert);
     
-
-
-
     }
-
 
     public function uploadImage($filename, $tempname){
 

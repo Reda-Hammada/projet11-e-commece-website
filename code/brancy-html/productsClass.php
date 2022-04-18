@@ -5,6 +5,7 @@ class product {
 
  
  private $id;
+ private $image;
  private $productName;
  private $details;
  private $price;
@@ -71,6 +72,22 @@ public function setQuantity($value){
 
   $this->quantity = $value;
 }
+
+
+
+public function setImage($image){
+
+  $this->image = $image;
+}
+
+
+public function getImage(){
+
+  return $this->image;
+
+
+}
+
 
 }
 
