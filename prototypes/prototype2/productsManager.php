@@ -94,28 +94,11 @@ class productManager {
     
   }
 
-  // start session and store product in session for cart 
-
-  public function  startSession($arrCart){
-    
-      session_start();
-      $_SESSION['cart'] = $arrCart;
-
-    }
+ 
 
 
     
-// return cart session 
 
-  public function getCart(){
-
-    if(isset($_SESSION['cart'])){
-
-      return $_SESSION['cart'];
-      return array();
-
-    }
-  }
 
 
 
