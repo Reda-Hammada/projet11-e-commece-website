@@ -1,6 +1,18 @@
 <?php 
 
 include 'productsManager.php';
+include 'CartManager.php';
+
+session_start();
+
+$cartManager = new  CartManager();
+
+$cartManager->initCode();
+
+
+
+
+
 
 if(isset($_GET['id'])){
     
@@ -15,9 +27,7 @@ if(isset($_GET['id'])){
 $data =  $productManager->getProductForDetails($id);
 
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
