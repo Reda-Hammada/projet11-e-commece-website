@@ -1,17 +1,7 @@
 <?php 
 
-include 'productsManager.php';
-include 'CartManager.php';
-
-session_start();
-
-$cartManager = new  CartManager();
-
-$cartManager->initCode();
-
-
-
-
+require 'productsManager.php';
+require 'cartManager.php';
 
 
 if(isset($_GET['id'])){
