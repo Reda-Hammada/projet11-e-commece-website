@@ -168,12 +168,12 @@ $bringAllProducts =  new productManager();
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="hero-slide-thumb">
-                                            <img src="assets/images/slider/slider1.webp" width="841" height="832" alt="Image">
+                                            <img src="assets/images/ezgif.com-gif-maker.png" width="841" height="832" alt="Image">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="hero-slide-text-shape"><img src="assets/images/slider/text1.webp" width="70" height="955" alt="Image"></div>
+                            <div class="hero-slide-text-shape"><img src="assets/images/" width="70" height="955" alt="Image"></div>
                             <div class="hero-slide-social-shape"></div>
                         </div>
                         <div class="swiper-slide hero-slide-item">
