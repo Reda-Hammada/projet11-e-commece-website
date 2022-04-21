@@ -1,7 +1,5 @@
 <?php
-
-class CartLine{
-    
+    class CartLine{
         private $idCartLine;
         private $idProduct;
         private $idCart;
@@ -52,6 +50,4 @@ class CartLine{
            return $this->product;
         }
     }
-
-
-    ?>
+?> 
