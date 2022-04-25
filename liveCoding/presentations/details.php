@@ -12,9 +12,9 @@ if(isset($_GET)){
 }
 
 
-echo "<pre>";
-print_r($data);
-echo "</pre>";
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
 
 
 ?>
@@ -30,6 +30,29 @@ echo "</pre>";
     <title>product</title>
 </head>
 <body>
-    
+<header>
+        <nav class='container-fluid bg-dark text-white text-center'>
+            <h1>e-commerce</h1>
+        </nav>
+    </header>
+    <main>
+    <main>
+        <section class="container-fluid  text-center mt-5 d-flex flex-row justify-content-evenly">
+
+        <?php foreach($data as $product){ ?>
+
+                    <div class=" d-flex flex-column  align-item-center">
+                        <img src="../asset/images/images.png">
+                        <h2><?php echo $product->getProductName(); ?></h2>
+                        <h4><?php echo $product->getDetails() ?></h4>
+                        <p><?php echo $product->getPrice() . " DH" ?></p>
+                        <input type="number" value ="1" name="quantity">
+                        <button class="btn btn-success" >add to cart</button></a>
+                    </div>
+
+                <?php } ?>
+        </section>
+    </main>
+    </main>
 </body>
 </html>
