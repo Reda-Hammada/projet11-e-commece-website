@@ -29,7 +29,6 @@ class CartManager {
         setcookie('cartCookie', $cookieId, $expire);
         $_SESSION["product"] = array();
         $_SESSION["quantity"] = 0;
-        $_SESSION["product"] = array();
         $this->addCartCookie($cookieId);
     }
 
@@ -62,7 +61,7 @@ class CartManager {
             $cartLine->setIdProduct($value['idProduct']);
             $cartLine->setProductCartQuantity($value['productQuantity']);
             $product->setId($value['id']);
-            $product->setName($value['ProductName']);
+            $product->setName($value['productName']);
             $product->setPrice($value['price']);
             $product->setDescription($value['details']);
             $product->setDateOfExpiration($value["expirationDate"]);
@@ -76,9 +75,10 @@ class CartManager {
     
     // pour ajouter session
     public function set($cart, $product, $quantity){
-        session_start();
+
+        
         $_SESSION["cart"] = $cart;
-        array_push($_SESSION["product"], $product);
+        array_push($_SESSION["product"],$product);
         if(!isset($_SESSION["quantity"])){
             $_SESSION["quantity"] = 0;
         }
@@ -97,6 +97,7 @@ class CartManager {
         $product = new Product();
         $productsList = array();
         foreach ($result as $value_Data) {
+
             $product->setId($value_Data['id']);
             $product->setName($value_Data['productName']);
             $product->setPrice($value_Data['price']);
@@ -104,6 +105,7 @@ class CartManager {
             $product->setDateOfExpiration($value_Data["expirationDate"]);
             $product->setQuantity($value_Data['stockQuantity']);
             $product->setCategory($value_Data['categoryProduct']);
+
             array_push($productsList, $product);
         }
           return $productsList;
