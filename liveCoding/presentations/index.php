@@ -21,14 +21,17 @@ $data = $productManager->getAllProducts();
         </nav>
     </header>
     <main>
-        <section class="w-100  text-center mt-5 d-flex justify-content-evenly">
-                <?php foreach($data as $product){ ?>
-                    <di class=" d-flex flex-column  align-item-center">
+        <section class="container-fluid  text-center mt-5 d-flex flex-row justify-content-evenly">
+
+        <?php foreach($data as $product){ ?>
+
+                    <div class=" d-flex flex-column  align-item-center">
                         <img src="../asset/images/images.png">
                         <h2><?php echo $product->getProductName(); ?></h2>
                         <h4><?php echo $product->getDetails() ?></h4>
                         <p><?php echo $product->getPrice() . " DH" ?></p>
-                        <button class="btn btn-success d-block text-center">details</button>
+                        <a class=" text-center  d-block" href="details.php?id=<?php echo $product->getId()?> ">
+                        <button class="btn btn-success" >details</button></a>
                     </div>
 
                 <?php } ?>
