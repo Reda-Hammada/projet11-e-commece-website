@@ -17,10 +17,11 @@ class dataBase {
             $message = "database error";
 
             throw new exception($message);
-
-
+    
+        
         endif;
 
+        return $connect;
     }
 }
 

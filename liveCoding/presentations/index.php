@@ -1,4 +1,7 @@
 <?php
+require '../manager/productManager.php';
+$productManager = new productManager ();
+$data = $productManager->getAllProducts();
 
 ?>
 
@@ -12,6 +15,24 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <nav class='container-fluid bg-dark text-white text-center'>
+            <h1>e-commerce</h1>
+        </nav>
+    </header>
+    <main>
+        <section class="w-100  text-center mt-5 d-flex justify-content-evenly">
+                <?php foreach($data as $product){ ?>
+                    <di class=" d-flex flex-column  align-item-center">
+                        <img src="../asset/images/images.png">
+                        <h2><?php echo $product->getProductName(); ?></h2>
+                        <h4><?php echo $product->getDetails() ?></h4>
+                        <p><?php echo $product->getPrice() . " DH" ?></p>
+                        <button class="btn btn-success d-block text-center">details</button>
+                    </div>
+
+                <?php } ?>
+        </section>
+    </main>
 </body>
 </html>
