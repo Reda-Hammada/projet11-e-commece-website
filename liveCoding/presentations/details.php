@@ -48,7 +48,7 @@ if(isset($_GET)){
                             <h2><?php echo $product->getProductName(); ?></h2>
                             <h4><?php echo $product->getDetails() ?></h4>
                             <p><?php echo $product->getPrice() . " DH" ?></p>
-                            <input type="text" value= "<?php echo $product->getId() ?>" name="id">
+                            <input type="hiddeng" value= "<?php echo $product->getId() ?>" name="id">
                             <input type="number" value ="1" name="quantity">
                             <input type="submit" class="btn btn-success"  value="add to cart">
 
