@@ -42,13 +42,22 @@ if(isset($_GET)){
         <?php foreach($data as $product){ ?>
 
                     <div class=" d-flex flex-column  align-item-center">
-                        <img src="../asset/images/images.png">
-                        <h2><?php echo $product->getProductName(); ?></h2>
-                        <h4><?php echo $product->getDetails() ?></h4>
-                        <p><?php echo $product->getPrice() . " DH" ?></p>
-                        <input type="number" value ="1" name="quantity">
-                        <button class="btn btn-success" >add to cart</button></a>
+                        <form method="get" action="addToCart.php">
+
+                            <img src="../asset/images/images.png">
+                            <h2><?php echo $product->getProductName(); ?></h2>
+                            <h4><?php echo $product->getDetails() ?></h4>
+                            <p><?php echo $product->getPrice() . " DH" ?></p>
+                            <input type="text" value= "<?php echo $product->getId() ?>" name="id">
+                            <input type="number" value ="1" name="quantity">
+                            <input type="submit" class="btn btn-success"  value="add to cart">
+
+
+                        </form>
+                           
+                            
                     </div>
+
 
                 <?php } ?>
         </section>

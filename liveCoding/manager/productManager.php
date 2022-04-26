@@ -57,6 +57,19 @@ class productManager {
 
 
     }
+
+    public function setCart($id,$carts){
+
+        session_start();
+        $_SESSION['cart'][$id] = $carts;
+    }
+
+    public function getCart(){
+
+        return $_SESSION['cart'];
+    }
+
+   
 }
 
 
