@@ -66,7 +66,12 @@ class productManager {
 
     public function getCart(){
 
-        return $_SESSION['cart'];
+        if(isset($_SESSION['cart'])):
+
+
+            return $_SESSION['cart'];
+
+        endif;
     }
 
    
